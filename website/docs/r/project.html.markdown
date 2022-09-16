@@ -36,6 +36,16 @@ The following arguments are supported:
 - `work_item_template` - (Optional) Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 - `features` - (Optional) Defines the status (`enabled`, `disabled`) of the project features.  
    Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+- `initialization` - (Optional) An `initialization` block as documented below.
+
+`initialization` - (Optional) block supports the following:
+
+- `init_type` - (Required) The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+- `source_type` - (Optional) Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
+- `source_url` - (Optional) The URL of the source repository. Used if the `init_type` is `Import`.
+- `service_connection_id` (Optional) The id of service connection used to authenticate to a private repository for import initialization.
+- `branch_name` (Optional) The branch name to use when the default repository is initialised. 
+
 
 > **NOTE:**  
 > It's possible to define project features both within the [`azuredevops_project_features` resource](project_features.html) and
